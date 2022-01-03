@@ -40,3 +40,9 @@ test {
 jacocoTestReport {
 	dependsOn test // tests are required to run before generating the report
 }
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "com.tawnydev:SpringRest"
+    }
+}
