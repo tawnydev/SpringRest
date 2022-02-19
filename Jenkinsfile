@@ -43,7 +43,7 @@ pipeline {
         }
         stage ('Notification') {
             steps{
-                mailer(recipients="kevin.matrix@hotmail.fr", dontNotifyEveryUnstableBuild = false, sendToIndividuals = false)
+                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: emailextrecipients([culprits(), requestor()])])
             }
         }
         stage('Docker Deployment') {
